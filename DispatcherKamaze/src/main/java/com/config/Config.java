@@ -24,13 +24,13 @@ public class Config {
         this.num_agreg = num_agreg;
     }
 
-    public Config(String tracker, String mark, String gos, String name, String phone, String type_work) {
+    public Config(String tracker, String mark, String gos, String name) {
         this.tracker = tracker;
         this.mark = mark;
         this.gos = gos;
         this.name = name;
-        this.phone = phone;
-        this.type_work = type_work;
+        this.phone = "";
+        this.type_work = "";
         this.agregat="";
         this.num_agreg="";
     }

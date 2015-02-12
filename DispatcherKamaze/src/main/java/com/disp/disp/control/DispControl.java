@@ -94,18 +94,17 @@ public class DispControl implements Disp {
         FileInputStream inputStream = new FileInputStream(path);
 
         XSSFWorkbook workbook  = new XSSFWorkbook(inputStream);
-        XSSFSheet sheet = workbook.getSheet("combaine");
+        XSSFSheet sheet = workbook.getSheet("kamaz");
         int row_total = sheet.getLastRowNum();
 
         for(int i = 1; i < row_total+1; i++){
             String tracker;
-            String agregat;
+
             String mark;
             String gos;
             String name;
-            String phone;
-            String vid_rabot;
-            String inv_agregat;
+            //String phone;
+
             try{
                 tracker = sheet.getRow(i).getCell(0).toString();
                 tracker = tracker.substring(0,tracker.indexOf("."));
@@ -123,25 +122,14 @@ public class DispControl implements Disp {
             try {
                 name = sheet.getRow(i).getCell(3).toString();
             }catch(Exception e){name = "-";}
-            try {
+           /* try {
                 phone = sheet.getRow(i).getCell(4).toString();
             }catch (Exception e){phone = "-";}
-            try{
-                vid_rabot = sheet.getRow(i).getCell(5).toString();
-            }catch(Exception e){vid_rabot = "-";}
-            try{
-                agregat = sheet.getRow(i).getCell(6).toString();
-            }catch(Exception e){ agregat = "-";}
+            */
+
 
             try{
-                inv_agregat = sheet.getRow(i).getCell(7).toString();
-            }catch (Exception e){inv_agregat = "-";}
-            try{
-                inv_agregat = inv_agregat.substring(0,inv_agregat.indexOf("."));
-            }catch (Exception e){}
-
-            try{
-                configList.add(new Config(tracker,mark,gos,name,phone,vid_rabot,agregat,inv_agregat));
+                configList.add(new Config(tracker,mark,gos,name));
             }catch (Exception e){
                 System.out.print("Can not add element to configList");
             }

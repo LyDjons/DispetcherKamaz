@@ -29,11 +29,11 @@ public class SaveExclell {
 
     //установка размеров колонок
     private  void setSizeColumn(Sheet sheet){
-        sheet.setColumnWidth(0,3766);
-        sheet.setColumnWidth(1,6107);
-        sheet.setColumnWidth(2,2925);
-        sheet.setColumnWidth(3,6619);
-        sheet.setColumnWidth(4,5668);
+        sheet.setColumnWidth(0,1462);
+        sheet.setColumnWidth(1,4700);
+        sheet.setColumnWidth(2,2800);
+        sheet.setColumnWidth(3,4388);
+        sheet.setColumnWidth(4,1828);
         for(int i = 5 ; i < 101;i++)
             sheet.setColumnWidth(i,420);
     }
@@ -69,7 +69,7 @@ public class SaveExclell {
     public void createHatList() throws IOException {
 //установка размера колонок
         setSizeColumn(sheet);
-        sheet.createRow(1).createCell(0).setCellValue("Робота комбайнів");
+        sheet.createRow(1).createCell(0).setCellValue("Робота Камазів");
         XSSFCellStyle style = workbook.createCellStyle();
         style.setAlignment(CellStyle.ALIGN_CENTER); //выровняли по центру
         style.setFillForegroundColor(new XSSFColor(new Color(255,255,0))); //цвет ячейки
@@ -96,11 +96,11 @@ public class SaveExclell {
             style2.setFillPattern(CellStyle.SOLID_FOREGROUND); //?? установить цвет
             sheet.getRow(2).getCell(i).setCellStyle(style2); //применить стиль
         }
-        cap_row.createCell(0).setCellValue("Відділення");
+        cap_row.createCell(0).setCellValue("№п/п");
         cap_row.createCell(1).setCellValue("Марка ТЗ");
         cap_row.createCell(2).setCellValue("Держ. №");
-        cap_row.createCell(3).setCellValue("Вид робіт");
-        cap_row.createCell(4).setCellValue("ПІБ");
+        cap_row.createCell(3).setCellValue("Водій");
+        cap_row.createCell(4).setCellValue("Трек");
         for(int i=0;i<5;i++) sheet.getRow(2).getCell(i).setCellStyle(style2);
         for(int i=0; i<6;i++){
             CellStyle cellStyle = sheet.getRow(2).getCell(i).getCellStyle();
@@ -157,12 +157,13 @@ public class SaveExclell {
     public void create(ArrayList<TransportExcell> transportlist) throws IOException {
         int row = 4;
         //заполняем  инф. таблицу
+        int count = 1;
         for(TransportExcell tr: transportlist){
             sheet.createRow(row).createCell(1).setCellValue(tr.getTransport_mark());
-            sheet.getRow(row).createCell(0).setCellValue(tr.getDepartment());
+            sheet.getRow(row).createCell(0).setCellValue(Integer.toString(count++));
             sheet.getRow(row).createCell(2).setCellValue(tr.getGos());
-            sheet.getRow(row).createCell(3).setCellValue(tr.getType_of_work());
-            sheet.getRow(row).createCell(4).setCellValue(tr.getFio());
+            sheet.getRow(row).createCell(3).setCellValue(tr.getFio());
+            sheet.getRow(row).createCell(4).setCellValue(tr.getTracker());
             row++;
 
         }
@@ -183,7 +184,7 @@ public class SaveExclell {
         }
 
         //исуем отчет
-        driwing_report(new Color(0, 176, 80), new Color(255, 255, 0), transportlist);
+       driwing_report(new Color(0, 176, 80), new Color(255, 255, 0), transportlist);
 
     }
 

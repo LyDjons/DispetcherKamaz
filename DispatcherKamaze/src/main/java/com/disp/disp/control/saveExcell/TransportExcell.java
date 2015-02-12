@@ -110,10 +110,10 @@ if(configs==null) return "нет в config";
     }
     public TransportExcell(Report report,ArrayList<Config>configs,Map<String,String> departMap) {
         tracker = report.getTracker();
-        department= get_list_departments_of_work(report,configs,departMap);
+        department= "";
         transport_mark = get_transport_mark(report.getTracker(),report.getTransport(),configs);
         gos =getGos(report.getTracker(), configs);
-        type_of_work = get_type_of_work(report.getTracker(),configs);
+        type_of_work = "";
         fio  = getDriver(report, configs);
         if(getStartWork(report)==null){
 
@@ -225,14 +225,14 @@ transportAction.getInterval().getHours()<0) continue;
             int end = get_num_cell(transportAction.getEnd());
             if(start==end) continue;
             if(transportAction.getStatus().contains("Стоянка") && (transportAction.getInterval().getHours()>0 ||
-            transportAction.getInterval().getMinutes()>14)){
-                painterarray.add(new Pinter(start,end,new Color(255,255,0)));
+            transportAction.getInterval().getMinutes()>2)){
+                painterarray.add(new Pinter(start,end,new Color(255,192,0)));
             }
-            if(transportAction.getMiddle_speed()>14 && transportAction.getStatus().contains("Движение")){
+            if(transportAction.getMiddle_speed()>20 && transportAction.getStatus().contains("Движение")){
                 painterarray.add(new Pinter(start,end,new Color(0,176,240)));
             }
             if(transportAction.getStatus().contains("Движение") && transportAction.getMiddle_speed()<14){
-                painterarray.add(new Pinter(start,end,new Color(0,176,80)));
+                painterarray.add(new Pinter(start,end,new Color(255,255,0)));
             }
         }
 

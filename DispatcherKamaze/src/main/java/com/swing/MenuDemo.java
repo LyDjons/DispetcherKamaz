@@ -57,7 +57,6 @@ public class MenuDemo {
         saveMenu = new JMenu("Создать отчет");
             saveItemPath = new JMenuItem("В существующий файл");
             saveItemNew = new JMenuItem("В новый файл");
-
             saveMenu.add(saveItemPath);
             saveMenu.add(saveItemNew);
         show_config = new JMenuItem("Файл конфгурации");
