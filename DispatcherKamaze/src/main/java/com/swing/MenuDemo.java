@@ -14,6 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -80,6 +81,7 @@ public class MenuDemo {
                         multiLineMsg,"Инструкция",JOptionPane.INFORMATION_MESSAGE,null);
             }
         });
+
         about.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -109,7 +111,7 @@ public class MenuDemo {
                         , "   skype: znahar69"
                         , "   phone: +380634873018",newline
                         , "благодарить сюда:"
-                        , "   U424521704609 "
+                        , "   WebMoney: U424521704609 "
                         , "   5168757200215517" } ;
 
                 Object[] options = {"Отблагодарил",
@@ -148,7 +150,8 @@ public class MenuDemo {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                   final String path_load=getPathToFile("Загрузить");
+                   //final String path_load=getPathToFile("Загрузить");
+                   final String path_load="D:/java/Dispatcher/Document.xlsx";
                     if(path_load==null) return;
 
                     Thread thread = new Thread(){
@@ -178,7 +181,7 @@ public class MenuDemo {
                       try{
                           disp.load_departmetn("config/config.xlsx");
                         //  for(Map.Entry<String,String> m :disp.getDepartMap().entrySet())
-                           //   output.append("  "+m.toString()+"\n");
+                          //    output.append("  "+m.toString()+"\n");
                       }catch (Exception e){
                           output.append(new Date() +" -> Не удалось загрузить департаменты configs.xlsx"+newline);
                       }

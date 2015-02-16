@@ -20,6 +20,7 @@ public class TransportExcell {
     private Date start;
     private Date end;
     private ArrayList<Pinter> pintersList;
+    private Map<String,String> departMap;
 
     public String getDepartment() {
         return department;
@@ -109,6 +110,7 @@ if(configs==null) return "нет в config";
         return "-";
     }
     public TransportExcell(Report report,ArrayList<Config>configs,Map<String,String> departMap) {
+        this.departMap=departMap;
         tracker = report.getTracker();
         department= "";
         transport_mark = get_transport_mark(report.getTracker(),report.getTransport(),configs);
@@ -131,9 +133,50 @@ if(configs==null) return "нет в config";
             end.setSeconds(59);
         }else {
             end = (Date)getEndWork(report).clone();}
-        pintersList=getPainterListIntervalNumColumn(report.getTransportActions());
+        pintersList=getPainterListIntervalNumColumnStops(report.getTransportActions(),15);
+        pintersList=convertPinterList(pintersList);
         if(gos.contains(".")) gos = gos .substring(0,gos.indexOf("."));
 
+    }
+    //вывод всех стоянок на елеваторе и других стоянок
+    private  ArrayList<Pinter> convertPinterList(ArrayList<Pinter> list){
+        ArrayList<Pinter> superlist = new ArrayList<Pinter>();
+        Pinter p = null;
+        for (int i =0; i < list.size();i++){
+            if(find_indep(list.get(i))){
+                if(p!=null){
+                    p.setEnd(list.get(i).getEnd());
+                    int l= p.getMin()+list.get(i).getMin();
+                    p.setMin(l);
+                    continue;
+                }
+                p = list.get(i);
+                continue;
+            }
+            if(p!=null){
+                superlist.add(p);
+                p=null;
+
+                continue;
+            }
+            else{
+                superlist.add(list.get(i));
+            }
+
+        }
+        if(p!=null)
+        superlist.add(p);
+
+        return superlist;
+    }
+    //tru - если остановка в нужной зоне
+    private  boolean find_indep(Pinter p){
+        for(Map.Entry<String,String> map:departMap.entrySet()){
+            if(p.getPlace().contains(map.getKey())){
+              return true;
+            }
+        }
+        return false;
     }
     public static String get_transport_mark(int tracker,String transpory_marck,ArrayList<Config>configs){
        if(configs==null) return transpory_marck;
@@ -143,14 +186,14 @@ if(configs==null) return "нет в config";
       return transpory_marck;
     }
           //получение начала движения
-    private static Date getStartWork(Report report){
+    private Date getStartWork(Report report){
         for(TransportAction transportAction :report.getTransportActions()){
             if (transportAction.getStatus().equals("Движение")) return (Date)transportAction.getStart().clone();
         }
         return null;
     }
          //олучение окончания движения
-    private static Date getEndWork(Report report){
+    private  static Date getEndWork(Report report){
         ArrayList<TransportAction> ta = report.getTransportActions();
         for(int j=ta.size()-1;j>-1;j--){
             if (ta.get(j).getStatus().equals("Движение")) {
@@ -212,32 +255,36 @@ if(configs==null) return "нет в config";
         return place;
 
     }
-    public ArrayList<Pinter> getPainterListIntervalNumColumn(ArrayList<TransportAction> action){
+
+    public ArrayList<Pinter> getPainterListIntervalNumColumnStops(ArrayList<TransportAction> action,int min){
         ArrayList<Pinter> painterarray = new ArrayList<Pinter>();
 
         for(TransportAction transportAction:action){
-
+            if(transportAction.getStatus().contains("Движение")) continue;
             if(transportAction.getStart().getHours()<7) continue;
-if(transportAction.getStatus().contains("Стоянка") && transportAction.getInterval().getMinutes()<15 &&
-transportAction.getInterval().getHours()<0) continue;
+//if(transportAction.getStatus().contains("Стоянка") && transportAction.getInterval().getMinutes()<min &&
+//transportAction.getInterval().getHours()<0) continue;
 
             int start =get_num_cell(transportAction.getStart());
             int end = get_num_cell(transportAction.getEnd());
-            if(start==end) continue;
-            if(transportAction.getStatus().contains("Стоянка") && (transportAction.getInterval().getHours()>0 ||
-            transportAction.getInterval().getMinutes()>2)){
-                painterarray.add(new Pinter(start,end,new Color(255,192,0)));
+            //if(start==end) continue;
+            if(transportAction.getStatus().contains("Стоянка") && (transportAction.getInterval().getHours()>=0 ||
+            transportAction.getInterval().getMinutes()>0)){
+                int sec = 0;
+                if(transportAction.getInterval().getSeconds()>29) sec =1;
+                int minutes = transportAction.getInterval().getHours()*60+transportAction.getInterval().getMinutes()+sec;
+                painterarray.add(new Pinter(start,end,new Color(255,255,0),transportAction.getPlace(),minutes));
             }
-            if(transportAction.getMiddle_speed()>20 && transportAction.getStatus().contains("Движение")){
-                painterarray.add(new Pinter(start,end,new Color(0,176,240)));
-            }
-            if(transportAction.getStatus().contains("Движение") && transportAction.getMiddle_speed()<14){
-                painterarray.add(new Pinter(start,end,new Color(255,255,0)));
-            }
+           // if(transportAction.getMiddle_speed()>20 && transportAction.getStatus().contains("Движение")){
+             //   painterarray.add(new Pinter(start,end,new Color(0,176,240)));
+           // }
+           // if(transportAction.getStatus().contains("Движение") && transportAction.getMiddle_speed()<14){
+            //    painterarray.add(new Pinter(start,end,new Color(255,255,0)));
+           // }
         }
 
         //deleted start yellow
-        for(Pinter p : painterarray){
+   /*     for(Pinter p : painterarray){
             if(p.getColor().equals(new Color(255,255,0)))
                 p.setColor(new Color(255,255,255));
             else
@@ -254,6 +301,7 @@ transportAction.getInterval().getHours()<0) continue;
                 break;
             }
         }
+        */
         return painterarray;
     }
 
@@ -300,7 +348,7 @@ transportAction.getInterval().getHours()<0) continue;
         return (Date)date.clone();
     }
 
-    private static int  get_num_cell(Date date){
+    public  int  get_num_cell(Date date){
         date = (Date)data_rounding(date).clone();
         Date countdata = new Date();
         countdata.setHours(7);
@@ -316,8 +364,20 @@ transportAction.getInterval().getHours()<0) continue;
         return -1;
     }
 
-    public ArrayList<Pinter> getPintersList() {
+   public ArrayList<Pinter> getPintersList() {
         return pintersList;
+    }
+
+    public void setPintersList(ArrayList<Pinter> pintersList) {
+        this.pintersList = pintersList;
+    }
+
+    public Map<String, String> getDepartMap() {
+        return departMap;
+    }
+
+    public void setDepartMap(Map<String, String> departMap) {
+        this.departMap = departMap;
     }
 
     @Override

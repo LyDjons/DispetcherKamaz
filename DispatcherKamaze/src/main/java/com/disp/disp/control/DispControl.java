@@ -67,7 +67,7 @@ public class DispControl implements Disp {
             transportExcell.get(i).setDepartment(transportExcell.get(i).getDepartment()+" ");
            System.out.println(transportExcell.get(i).getDepartment());
         }
-        Collections.sort(transportExcell, new Comparator<TransportExcell>() {
+    /*    Collections.sort(transportExcell, new Comparator<TransportExcell>() {
             @Override
             public int compare(TransportExcell o1, TransportExcell o2) {
                 if (o1.getPintersList() == null || o2.getPintersList() == null) return 0;
@@ -76,7 +76,7 @@ public class DispControl implements Disp {
                 return s2.toString().compareTo(s1.toString());
             }
         });
-
+*/
         try{
             SaveExclell saveExclell = new SaveExclell(path,list_name);
             saveExclell.createHatList();
@@ -146,12 +146,17 @@ public class DispControl implements Disp {
 
         XSSFWorkbook workbook  = new XSSFWorkbook(inputStream);
 
-        XSSFSheet sheet = workbook.getSheet("department");
+        XSSFSheet sheet = workbook.getSheet("elevator");
         int row_total = sheet.getLastRowNum();
+        String zone="";
 
         for(int i = 1 ; i < row_total+1;i ++){
+            try{
+            zone=sheet.getRow(i).getCell(0).toString();
+            }catch(Exception e){zone="";continue;}
 
-           departMap.put(sheet.getRow(i).getCell(1).toString(), sheet.getRow(i).getCell(0).toString());
+
+           departMap.put(zone, "");
         }
 
     }

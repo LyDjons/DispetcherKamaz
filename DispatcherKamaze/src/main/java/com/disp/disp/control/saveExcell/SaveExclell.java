@@ -9,6 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.swing.text.html.parser.Entity;
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Map;
 
 /**
  * Created by disp.chimc on 31.10.14.
@@ -112,42 +114,27 @@ public class SaveExclell {
     }
 
     //нарисовать отчет
-    private void driwing_report(Color work,Color stop,ArrayList<TransportExcell> transportlist){
+    private void driwing_report(Color work,Color load,Color unload,ArrayList<TransportExcell> transportlist){
         try{
             int row1 =4;
+
+            //рисуем движение
             for(TransportExcell tr: transportlist){
-
-                for(int i = tr.getFirstIndexWorkGreen(tr.getPintersList())-1;i<tr.getLastIndexWorkGreen(tr.getPintersList());i++){
-                    if(i>4) driwing_cell(row1, i,work);
+                    int start = 5;
+                if(tr.getStart().getHours()>=7) {
+                    start = tr.get_num_cell(tr.getStart());
                 }
-                row1++;
-            }
-            row1=4;
-            for(TransportExcell tr: transportlist){
+              int end = tr.get_num_cell(tr.getEnd());
 
-                for(Pinter p:tr.getPintersList()){
-                    if(p.getColor().equals(stop)){
-                        for(int i =p.getStart();i<p.getEnd();i++){
-                            driwing_cell(row1,i,p.getColor());
-                        }
-                    }
-                }
-                row1++;
-            }
-            //рисуем переезды
-            row1=4;
-            for(TransportExcell tr: transportlist){
 
-                for(Pinter p:tr.getPintersList()){
-                    if(p.getColor().equals(new Color(0,176,240))){
-
-                        for(int i =p.getStart();i<p.getEnd();i++){
-                            driwing_cell(row1,i,p.getColor());
-                        }
-                    }
-                }
-                row1++;
+                for(int i = start; i<end;i++){
+                    driwing_cell(row1,i,new Color(0,176,80));
+                }row1++;
             }
+            row1 =4;
+
+
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -184,7 +171,7 @@ public class SaveExclell {
         }
 
         //исуем отчет
-       driwing_report(new Color(0, 176, 80), new Color(255, 255, 0), transportlist);
+       driwing_report(new Color(0,176,240), new Color(255, 188, 0),new Color(255,255,0), transportlist);
 
     }
 
