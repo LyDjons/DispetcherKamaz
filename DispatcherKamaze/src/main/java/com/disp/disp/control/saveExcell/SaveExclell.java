@@ -1,5 +1,6 @@
 package com.disp.disp.control.saveExcell;
 
+import com.config.Transport;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -129,9 +130,35 @@ public class SaveExclell {
 
                 for(int i = start; i<end;i++){
                     driwing_cell(row1,i,new Color(0,176,80));
-                }row1++;
+                }
+                for(Pinter p : tr.getPintersList()){
+                    if(tr.find_indep(p)){
+                        CellRangeAddress region = new CellRangeAddress(row1, row1, p.getStart(), p.getEnd()-1);//(firstRow,lastRow,firstCol,lastCol)
+                        sheet.addMergedRegion(region);
+                        for(int i = p.getStart();i<p.getEnd();i++){
+                            sheet.getRow(row1).getCell(p.getStart()).setCellValue(p.getMin());
+                            driwing_cell(row1,i,new Color(255,192,0));
+                        }
+                    }
+                    if(!tr.find_indep(p)){
+                        if(p.getEnd()==p.getStart())
+                        {driwing_cell(row1,p.getStart()-1,new Color(255,255,0));}else
+                        {
+                            for(int i = p.getStart()-1;i<p.getEnd();i++){
+
+                                driwing_cell(row1,i,new Color(255,255,0));
+                            }
+                        }
+                    }
+                }
+
+
+                row1++;
+
+
             }
             row1 =4;
+
 
 
 

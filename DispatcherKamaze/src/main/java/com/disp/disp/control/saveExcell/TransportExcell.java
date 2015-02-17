@@ -170,7 +170,7 @@ if(configs==null) return "нет в config";
         return superlist;
     }
     //tru - если остановка в нужной зоне
-    private  boolean find_indep(Pinter p){
+    public  boolean find_indep(Pinter p){
         for(Map.Entry<String,String> map:departMap.entrySet()){
             if(p.getPlace().contains(map.getKey())){
               return true;
@@ -212,48 +212,6 @@ if(configs==null) return "нет в config";
 
         }
         return "-";
-    }
-
-    //получение Названия отделения, где находился транспорт
-    private static String get_list_departments_of_work(Report report,ArrayList<Config>configs,Map<String,String> departMap){
-        String place ="";
-        if(configs==null){ return "-";}
-        for(Config c : configs){
-            if (Integer.parseInt(c.getTracker())==report.getTracker()){
-                if(c.getType_work().contains("збирання")) {
-                    place+="Комбайни ";
-                }else
-                if(c.getType_work().contains("бункер")) {
-                    place+="Бункера  ";
-                }
-            }
-        }
-
-        Set<String> places = new HashSet<String>();
-
-        for(TransportAction ta: report.getTransportActions()){
-                for(Map.Entry<String,String> m: departMap.entrySet()){
-                    if(ta.getPlace().contains(m.getKey())){
-
-                        try {
-                            int i = Integer.parseInt(ta.getPlace().substring(0,1));
-                        }catch (Exception e){
-                            continue;
-                        }
-
-                        places.add(m.getValue());
-                    }
-                }
-        }
-
-        for(String s : places){
-            place = place+" "+s+",";
-        }
-        if(place.endsWith(","))
-            place =place.substring(0,place.length()-1);
-
-        return place;
-
     }
 
     public ArrayList<Pinter> getPainterListIntervalNumColumnStops(ArrayList<TransportAction> action,int min){
@@ -303,21 +261,6 @@ if(configs==null) return "нет в config";
         }
         */
         return painterarray;
-    }
-
-    public int getFirstIndexWorkGreen(ArrayList<Pinter> list){
-        for(Pinter p : list){
-            if(p.getColor().equals(new Color(0,176,80))) return p.getStart();
-        }
-        return 5;
-    }
-
-    public int getLastIndexWorkGreen(ArrayList<Pinter> list){
-        int index =5;
-        for(Pinter p : list){
-            if(p.getColor().equals(new Color(0,176,80))) index=p.getEnd();
-        }
-        return index;
     }
 
     //округление даты (времени) до 15 мин

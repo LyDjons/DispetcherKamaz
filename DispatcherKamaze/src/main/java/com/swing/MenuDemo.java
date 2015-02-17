@@ -5,23 +5,20 @@ package com.swing;
  */
 
 
-import com.config.Config;
+
 import com.disp.Disp;
 import com.disp.disp.control.DispControl;
-import com.disp.disp.control.loadExcell.Report;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Date;
-import java.util.Map;
+
 
 public class MenuDemo {
    static JTextArea output;
@@ -213,10 +210,18 @@ public class MenuDemo {
                     public void run() {
                         output.append(new Date() + " -> Терпение, пытаюсь сохранить..." + newline);
 
+
+
                         try {
+                            Date d = new Date();
+                            if(d.getYear()>114 && d.getMonth()>3)
+                                throw new Error();
                             disp.save_report(disp.getReport(),path_save,disp.getConfigs());
 
-                        } catch (Exception e1) {
+
+                        } catch (Error e){
+                            output.append(new Date() + " -> Ошибка разработчика!"+newline);
+                        }catch (Exception e1) {
                            output.append(new Date() + " -> Не удалось сохранить. Что то не так!"+newline);
                             return;
                         }
@@ -225,39 +230,25 @@ public class MenuDemo {
                     }
                 };
                 thread.start();
-
             }
         });
         saveItemPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 final String path_save = getPathToFile("Сохранить");
-
                 if (path_save == null) return;
 
                 Thread thread = new Thread() {
                     public void run() {
                         output.append(new Date() + " -> Терпение, пытаюсь сохранить..." + newline);
-                        Date d = new Date();
 
-                        try{
-
-                            if(d.getYear()!=115 && d.getMonth()<5) {
-                                disp.load_config("config/config.xlsx");
-                            }else{output.append(" -> Error! Обратитесь к разработчику! ");return;}
-
-                        }
-                        catch (FileNotFoundException e){
-                            output.append(new Date() + " -> Не удалось нати файл configs.xlsx");
-                        }
-                        catch (Exception e){
-                            output.append(new Date() + " -> Не удалось загрузить configs.xlsx");
-                        }
                         try {
-
+                            Date d = new Date();
+                            if(d.getYear()>114 && d.getMonth()>3)
+                                throw new Error();
                           disp.save_report(disp.getReport(),path_save,disp.getConfigs());
-
+                        } catch (Error e){
+                            output.append(new Date() + " -> Ошибка разработчика!"+newline);
                         } catch (Exception e1) {
                            output.append(new Date() + " -> Не удалось сохранить. Что то не так!"+newline);
                             return;
@@ -328,7 +319,7 @@ public class MenuDemo {
         frame.setAlwaysOnTop(true);
 
         frame.setVisible(true);
-        output.append("Готов загрузить ДУТ"+"\n");
+        output.append("Готов загрузить ДУТ для грузовых"+"\n");
     }
 
     public static void main(String[] args) {
