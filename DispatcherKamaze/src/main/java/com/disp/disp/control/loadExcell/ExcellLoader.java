@@ -38,14 +38,15 @@ public class ExcellLoader {
             time_work.setDate(date.getDate());
             time_work.setMonth(date.getMonth());
             time_work.setYear(date.getYear());
-
+            try{
             time_stop.setHours(Integer.parseInt(stop.substring(0, 2)));
+
             time_stop.setMinutes(Integer.parseInt(stop.substring(3, 5)));
             time_stop.setSeconds(Integer.parseInt(stop.substring(6, 8)));
             time_stop.setYear(date.getYear());
             time_stop.setDate(date.getDate());
             time_stop.setMonth(date.getMonth());
-
+            }catch(Exception e){}
         return new Report(tracker,transport,km,time_work,time_stop);
 
     }
@@ -109,8 +110,8 @@ public class ExcellLoader {
 
                 }
             }catch (Exception e){
-                System.out.println("Ошибка чтения с файла треккера, комбайна, и и конвертирования!");
-                throw new IOException("Ошибка чтения с файла треккера, комбайна, и и конвертирования!");
+                System.out.println("Ошибка чтения с файла треккера,  и конвертирования!");
+               e.printStackTrace();
             }
 
         }

@@ -133,8 +133,14 @@ public class SaveExclell {
                 }
                 for(Pinter p : tr.getPintersList()){
                     if(tr.find_indep(p)){
+                        try{
                         CellRangeAddress region = new CellRangeAddress(row1, row1, p.getStart(), p.getEnd()-1);//(firstRow,lastRow,firstCol,lastCol)
                         sheet.addMergedRegion(region);
+                        }catch (Exception e){
+                            System.out.println("Do bot range region");
+
+
+                        }
                         for(int i = p.getStart();i<p.getEnd();i++){
                             sheet.getRow(row1).getCell(p.getStart()).setCellValue(p.getMin());
                             driwing_cell(row1,i,new Color(255,192,0));
