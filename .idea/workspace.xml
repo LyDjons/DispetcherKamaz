@@ -76,19 +76,17 @@
       <file leaf-file-name="MenuDemo.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/swing/MenuDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="334" column="5" selection-start="13755" selection-end="13755" vertical-scroll-proportion="1.0318949" vertical-offset="79" max-vertical-offset="765">
+            <state line="152" column="0" selection-start="6269" selection-end="6269" vertical-scroll-proportion="0.36210132" vertical-offset="2136" max-vertical-offset="4760">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#createMenuBar#0;class#MenuDemo#0" expanded="false" />
-                <element signature="e#6639#6673#0" expanded="false" />
-                <element signature="e#8447#10176#0" expanded="true" />
-                <element signature="e#9194#10119#0" expanded="true" />
-                <element signature="e#10100#10101#0" expanded="true" />
-                <element signature="e#10165#10166#0" expanded="true" />
-                <element signature="e#10218#11445#0" expanded="true" />
-                <element signature="e#11434#11435#0" expanded="true" />
+                <element signature="e#6560#6594#0" expanded="false" />
+                <element signature="e#8368#10097#0" expanded="true" />
+                <element signature="e#9115#10040#0" expanded="true" />
+                <element signature="e#10021#10022#0" expanded="true" />
+                <element signature="e#10086#10087#0" expanded="true" />
+                <element signature="e#10139#11366#0" expanded="true" />
+                <element signature="e#11355#11356#0" expanded="true" />
                 <element signature="method#getPathToFile#0;class#MenuDemo#0" expanded="false" />
-                <element signature="method#createContentPane#0;class#MenuDemo#0" expanded="false" />
                 <element signature="class#SaveActionListener#0;class#MenuDemo#0" expanded="false" />
                 <element signature="docComment;method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
                 <element signature="method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
@@ -187,7 +185,7 @@
               <option name="externalSystemIdString" value="GRADLE" />
               <option name="taskNames">
                 <list>
-                  <option value="clean" />
+                  <option value="jar" />
                 </list>
               </option>
             </ExternalSystemSettings>
@@ -201,7 +199,7 @@
               <option name="externalSystemIdString" value="GRADLE" />
               <option name="taskNames">
                 <list>
-                  <option value="jar" />
+                  <option value="clean" />
                 </list>
               </option>
             </ExternalSystemSettings>
@@ -463,9 +461,9 @@
         <option value="$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/disp/disp/control/saveExcell/Pinter.java" />
         <option value="$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/swing/Test2.java" />
         <option value="$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/swing/Test.java" />
-        <option value="$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/swing/MenuDemo.java" />
         <option value="$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/disp/disp/control/saveExcell/TransportExcell.java" />
         <option value="$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/disp/disp/control/saveExcell/SaveExclell.java" />
+        <option value="$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/swing/MenuDemo.java" />
       </list>
     </option>
   </component>
@@ -776,7 +774,7 @@
       <recent name="D:\java\Dispatcher\DispatcherKamaze\src\main\java\com" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MenuDemo (1)">
+  <component name="RunManager" selected="Gradle.DispatcherKamaze [jar]">
     <configuration default="false" name="DispatcherKamaze [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/DispatcherKamaze" />
@@ -1035,8 +1033,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Gradle.DispatcherKamaze [clean]" />
-        <item index="1" class="java.lang.String" itemvalue="Gradle.DispatcherKamaze [jar]" />
+        <item index="0" class="java.lang.String" itemvalue="Gradle.DispatcherKamaze [jar]" />
+        <item index="1" class="java.lang.String" itemvalue="Gradle.DispatcherKamaze [clean]" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1073,14 +1071,14 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18434873" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18434873" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40721104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40721104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1121,16 +1119,14 @@
         <state line="289" column="27" selection-start="12089" selection-end="12089" vertical-scroll-proportion="0.0" vertical-offset="4913" max-vertical-offset="5763">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createMenuBar#0;class#MenuDemo#0" expanded="false" />
-            <element signature="e#6639#6673#0" expanded="false" />
-            <element signature="e#8447#10176#0" expanded="true" />
-            <element signature="e#9194#10119#0" expanded="true" />
-            <element signature="e#10100#10101#0" expanded="true" />
-            <element signature="e#10165#10166#0" expanded="true" />
-            <element signature="e#10218#11445#0" expanded="true" />
-            <element signature="e#11434#11435#0" expanded="true" />
+            <element signature="e#6560#6594#0" expanded="false" />
+            <element signature="e#8368#10097#0" expanded="true" />
+            <element signature="e#9115#10040#0" expanded="true" />
+            <element signature="e#10021#10022#0" expanded="true" />
+            <element signature="e#10086#10087#0" expanded="true" />
+            <element signature="e#10139#11366#0" expanded="true" />
+            <element signature="e#11355#11356#0" expanded="true" />
             <element signature="method#getPathToFile#0;class#MenuDemo#0" expanded="false" />
-            <element signature="method#createContentPane#0;class#MenuDemo#0" expanded="false" />
             <element signature="class#SaveActionListener#0;class#MenuDemo#0" expanded="false" />
             <element signature="docComment;method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
             <element signature="method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
@@ -1195,16 +1191,14 @@
         <state line="82" column="0" selection-start="3207" selection-end="3207" vertical-scroll-proportion="0.0" vertical-offset="1394" max-vertical-offset="5933">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createMenuBar#0;class#MenuDemo#0" expanded="false" />
-            <element signature="e#6639#6673#0" expanded="false" />
-            <element signature="e#8447#10176#0" expanded="true" />
-            <element signature="e#9194#10119#0" expanded="true" />
-            <element signature="e#10100#10101#0" expanded="true" />
-            <element signature="e#10165#10166#0" expanded="true" />
-            <element signature="e#10218#11445#0" expanded="true" />
-            <element signature="e#11434#11435#0" expanded="true" />
+            <element signature="e#6560#6594#0" expanded="false" />
+            <element signature="e#8368#10097#0" expanded="true" />
+            <element signature="e#9115#10040#0" expanded="true" />
+            <element signature="e#10021#10022#0" expanded="true" />
+            <element signature="e#10086#10087#0" expanded="true" />
+            <element signature="e#10139#11366#0" expanded="true" />
+            <element signature="e#11355#11356#0" expanded="true" />
             <element signature="method#getPathToFile#0;class#MenuDemo#0" expanded="false" />
-            <element signature="method#createContentPane#0;class#MenuDemo#0" expanded="false" />
             <element signature="class#SaveActionListener#0;class#MenuDemo#0" expanded="false" />
             <element signature="docComment;method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
             <element signature="method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
@@ -1289,16 +1283,14 @@
         <state line="104" column="55" selection-start="4607" selection-end="4607" vertical-scroll-proportion="0.0" vertical-offset="1768" max-vertical-offset="5916">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createMenuBar#0;class#MenuDemo#0" expanded="false" />
-            <element signature="e#6639#6673#0" expanded="false" />
-            <element signature="e#8447#10176#0" expanded="true" />
-            <element signature="e#9194#10119#0" expanded="true" />
-            <element signature="e#10100#10101#0" expanded="true" />
-            <element signature="e#10165#10166#0" expanded="true" />
-            <element signature="e#10218#11445#0" expanded="true" />
-            <element signature="e#11434#11435#0" expanded="true" />
+            <element signature="e#6560#6594#0" expanded="false" />
+            <element signature="e#8368#10097#0" expanded="true" />
+            <element signature="e#9115#10040#0" expanded="true" />
+            <element signature="e#10021#10022#0" expanded="true" />
+            <element signature="e#10086#10087#0" expanded="true" />
+            <element signature="e#10139#11366#0" expanded="true" />
+            <element signature="e#11355#11356#0" expanded="true" />
             <element signature="method#getPathToFile#0;class#MenuDemo#0" expanded="false" />
-            <element signature="method#createContentPane#0;class#MenuDemo#0" expanded="false" />
             <element signature="class#SaveActionListener#0;class#MenuDemo#0" expanded="false" />
             <element signature="docComment;method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
             <element signature="method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
@@ -1465,19 +1457,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DispatcherKamaze/src/main/java/com/swing/MenuDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="334" column="5" selection-start="13755" selection-end="13755" vertical-scroll-proportion="1.0318949" vertical-offset="79" max-vertical-offset="765">
+        <state line="152" column="0" selection-start="6269" selection-end="6269" vertical-scroll-proportion="0.36210132" vertical-offset="2136" max-vertical-offset="4760">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#createMenuBar#0;class#MenuDemo#0" expanded="false" />
-            <element signature="e#6639#6673#0" expanded="false" />
-            <element signature="e#8447#10176#0" expanded="true" />
-            <element signature="e#9194#10119#0" expanded="true" />
-            <element signature="e#10100#10101#0" expanded="true" />
-            <element signature="e#10165#10166#0" expanded="true" />
-            <element signature="e#10218#11445#0" expanded="true" />
-            <element signature="e#11434#11435#0" expanded="true" />
+            <element signature="e#6560#6594#0" expanded="false" />
+            <element signature="e#8368#10097#0" expanded="true" />
+            <element signature="e#9115#10040#0" expanded="true" />
+            <element signature="e#10021#10022#0" expanded="true" />
+            <element signature="e#10086#10087#0" expanded="true" />
+            <element signature="e#10139#11366#0" expanded="true" />
+            <element signature="e#11355#11356#0" expanded="true" />
             <element signature="method#getPathToFile#0;class#MenuDemo#0" expanded="false" />
-            <element signature="method#createContentPane#0;class#MenuDemo#0" expanded="false" />
             <element signature="class#SaveActionListener#0;class#MenuDemo#0" expanded="false" />
             <element signature="docComment;method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />
             <element signature="method#createAndShowGUI#0;class#MenuDemo#0" expanded="false" />

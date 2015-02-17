@@ -147,8 +147,8 @@ public class MenuDemo {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                   //final String path_load=getPathToFile("Загрузить");
-                   final String path_load="D:/java/Dispatcher/Document.xlsx";
+                   final String path_load=getPathToFile("Загрузить");
+
                     if(path_load==null) return;
 
                     Thread thread = new Thread(){
